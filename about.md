@@ -1,15 +1,16 @@
 ---
 layout: page
-title: About
+title: Контакты
 permalink: /about/
 ---
 
-Some information about you!
+Программист и преподаватель программирования на платформе 1С:Предприятие 8.3 и BAF
 
-### More Information
+### Дополнительная информация
 
-A place to include any other types of information that you'd like to include about yourself.
+Занимаюсь программированием с 1992 года.
+Обучаю программированию с 2018 года.
 
-### Contact me
+### Задавайте вопросы, отвечу по возможости
 
-[email@domain.com](mailto:email@domain.com)
+[abc@ab-centr.com.ua](mailto:abc@ab-centr.com.ua)
