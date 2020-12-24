@@ -12,4 +12,4 @@ permalink: /about/
 
 ### Задавайте вопросы, отвечу по возможости
 
-[abc@ab-centr.com.ua](mailto:abc@ab-centr.com.ua)
+[simonych@ab-centr.com.ua](mailto:simonych@ab-centr.com.ua)
