@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Контакты
+title: About
 permalink: /about/
 ---
 
