@@ -23,9 +23,9 @@ footer-links:
   flickr:
   github: simonych/simonych.github.io
   instagram:
-  linkedin:
+  linkedin: https://www.linkedin.com/in/simonych/
   pinterest:
-  rss: # just type anything here for a working RSS icon
+  rss: https://simonych.github.io # just type anything here for a working RSS icon
   twitter:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
@@ -37,7 +37,7 @@ footer-links:
 disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
+google_analytics: G-9HYTW0PJFL
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
