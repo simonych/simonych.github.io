@@ -1,4 +1,7 @@
-# Отладка регламентных заданий
+---
+layout: post
+title: Отладка регламентных заданий
+---
 
 1. Запустить «1C:Enterprise 8.Х Server Agent» в режиме отладки
   * Для этого включить REGEDIT и дописать “-debug” к строке запуска агента: ![#01](https://simonych.github.io/images/2101-01-04-server-debug-01.jpg)
