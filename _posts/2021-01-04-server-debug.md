@@ -1,11 +1,11 @@
 # Отладка регламентных заданий
 
 1. Запустить «1C:Enterprise 8.Х Server Agent» в режиме отладки
-* Для этого включить REGEDIT и дописать “-debug” к строке запуска агента:
-![#01](https://simonych.github.io/images/2101-01-04-server-debug-01.jpg)
+  * Для этого включить REGEDIT и дописать “-debug” к строке запуска агента:
+    ![#01](https://simonych.github.io/images/2101-01-04-server-debug-01.jpg)
 
-* Включить SERVICES.MSC и перезапустить агент:
-![#02](https://simonych.github.io/images/2101-01-04-server-debug-02.jpg)
+  * Включить SERVICES.MSC и перезапустить агент:
+    ![#02](https://simonych.github.io/images/2101-01-04-server-debug-02.jpg)
 
 1. Убедиться, что строка соединения с базой данных  и возврат функции СтрокаСоединенияИнформационнойБазы() совпадают:
 
