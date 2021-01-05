@@ -27,9 +27,9 @@ title: Отладка регламентных заданий
  * Подгоняем строку соединения под то, что вывелось в журнал:
     ![#04](https://simonych.github.io/images/2101-01-04-server-debug-04.jpg)
 1. В режиме Конфигуратора настраиваем параметры отладки как показано ниже: 
-   ![#05](https://simonych.github.io/images/2101-01-04-server-debug-05.jpg)
+    ![#05](https://simonych.github.io/images/2101-01-04-server-debug-05.jpg)
 1. Убеждаемся в том, что блокировка регламентных заданий для нашей базы выключена: 
-   ![#06](https://simonych.github.io/images/2101-01-04-server-debug-06.jpg)
+    ![#06](https://simonych.github.io/images/2101-01-04-server-debug-06.jpg)
 1. Ставим в коде задания точку останова и запускаем отладку.
 
 Как-то так...
