@@ -4,8 +4,9 @@
     "title": "Zozengo 1C API",
     "version": "v3"
   },
+  "host": "zozengo.com",
   "paths": {
-    "https://zozengo.com/api/local/ua/agreements": {
+    "/api/local/ua/agreements": {
       "get": {
         "tags": [
           "Agreement"
@@ -59,7 +60,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement/{id}": {
+    "/api/local/ua/agreement/{id}": {
       "get": {
         "tags": [
           "Agreement"
@@ -185,7 +186,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-types": {
+    "/api/local/ua/agreement-types": {
       "get": {
         "tags": [
           "AgreementType"
@@ -226,7 +227,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type": {
+    "/api/local/ua/agreement-type": {
       "post": {
         "tags": [
           "AgreementType"
@@ -287,7 +288,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type/{key}": {
+    "/api/local/ua/agreement-type/{key}": {
       "delete": {
         "tags": [
           "AgreementType"
@@ -341,7 +342,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type/activate/{key}": {
+    "/api/local/ua/agreement-type/activate/{key}": {
       "put": {
         "tags": [
           "AgreementType"
@@ -395,7 +396,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type/deactivate/{key}": {
+    "/api/local/ua/agreement-type/deactivate/{key}": {
       "put": {
         "tags": [
           "AgreementType"
@@ -449,7 +450,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type/upload-text/{key}": {
+    "/api/local/ua/agreement-type/upload-text/{key}": {
       "post": {
         "tags": [
           "AgreementType"
@@ -523,7 +524,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type/activate-text/{key}": {
+    "/api/local/ua/agreement-type/activate-text/{key}": {
       "put": {
         "tags": [
           "AgreementType"
@@ -577,7 +578,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type/validate-text/{key}/{version}": {
+    "/api/local/ua/agreement-type/validate-text/{key}/{version}": {
       "get": {
         "tags": [
           "AgreementType"
@@ -642,7 +643,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/agreement-type/get-pdf/{key}": {
+    "/api/local/ua/agreement-type/get-pdf/{key}": {
       "get": {
         "tags": [
           "AgreementType"
@@ -686,7 +687,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/cloud-test/list": {
+    "/api/local/ua/cloud-test/list": {
       "get": {
         "tags": [
           "CloudTest"
@@ -712,7 +713,7 @@
         }
       }
     },
-    "https://zozengo.com/api/local/ua/cloud-test/download": {
+    "/api/local/ua/cloud-test/download": {
       "get": {
         "tags": [
           "CloudTest"
@@ -738,7 +739,7 @@
         }
       }
     },
-    "https://zozengo.com/api/local/ua/cloud-test/upload": {
+    "/api/local/ua/cloud-test/upload": {
       "get": {
         "tags": [
           "CloudTest"
@@ -774,7 +775,7 @@
         }
       }
     },
-    "https://zozengo.com/api/local/ua/download/{companyId}/{uploadId}": {
+    "/api/local/ua/download/{companyId}/{uploadId}": {
       "get": {
         "tags": [
           "Download"
@@ -822,7 +823,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/thread-count": {
+    "/api/local/ua/thread-count": {
       "get": {
         "tags": [
           "Info"
@@ -834,7 +835,7 @@
         }
       }
     },
-    "https://zozengo.com/api/local/ua/divide-by-zero/{value}": {
+    "/api/local/ua/divide-by-zero/{value}": {
       "get": {
         "tags": [
           "Info"
@@ -857,7 +858,7 @@
         }
       }
     },
-    "https://zozengo.com/api/local/ua/info/auth-person/{companyId}": {
+    "/api/local/ua/info/auth-person/{companyId}": {
       "get": {
         "tags": [
           "Info"
@@ -911,7 +912,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/info/auth-person/{companyId}/{personId}": {
+    "/api/local/ua/info/auth-person/{companyId}/{personId}": {
       "get": {
         "tags": [
           "Info"
@@ -976,7 +977,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/info/doa": {
+    "/api/local/ua/info/doa": {
       "get": {
         "tags": [
           "Info"
@@ -1017,7 +1018,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/info/transport-packages": {
+    "/api/local/ua/info/transport-packages": {
       "get": {
         "tags": [
           "Info"
@@ -1059,7 +1060,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/info/download-capacities": {
+    "/api/local/ua/info/download-capacities": {
       "get": {
         "tags": [
           "Info"
@@ -1101,7 +1102,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/info/vehicle-types": {
+    "/api/local/ua/info/vehicle-types": {
       "get": {
         "tags": [
           "Info"
@@ -1143,7 +1144,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/invoices": {
+    "/api/local/ua/invoices": {
       "get": {
         "tags": [
           "Invoice"
@@ -1228,7 +1229,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/invoice/co/{soid}": {
+    "/api/local/ua/invoice/co/{soid}": {
       "get": {
         "tags": [
           "Invoice"
@@ -1296,7 +1297,7 @@
           "Invoice"
         ],
         "summary": "Send CO invoice copy.\r\nAdd a file to body with \"file\" key. Example: { \"file\": base64/pdf }",
-        "description": "Sample request:\r\n            \r\n    curl --location --request POST 'http://{BASE_URL}https://zozengo.com/api/local/ua/invoice/co/UDK-13245' \\\r\n    --header 'Content-Type: application/x-www-form-urlencoded' \\\r\n    --form 'data=@/your-local-folder/inv-12345678-xyz.pdf' \\\r\n    --form 'invoiceNo=inv-12345678'",
+        "description": "Sample request:\r\n            \r\n    curl --location --request POST 'http://{BASE_URL}/api/local/ua/invoice/co/UDK-13245' \\\r\n    --header 'Content-Type: application/x-www-form-urlencoded' \\\r\n    --form 'data=@/your-local-folder/inv-12345678-xyz.pdf' \\\r\n    --form 'invoiceNo=inv-12345678'",
         "parameters": [
           {
             "name": "soid",
@@ -1397,7 +1398,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/invoice/{invoiceNo}": {
+    "/api/local/ua/invoice/{invoiceNo}": {
       "get": {
         "tags": [
           "Invoice"
@@ -1452,7 +1453,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/invoice/to/{soid}": {
+    "/api/local/ua/invoice/to/{soid}": {
       "post": {
         "tags": [
           "Invoice"
@@ -1526,7 +1527,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/invoice/act/{companyType}/{soid}": {
+    "/api/local/ua/invoice/act/{companyType}/{soid}": {
       "post": {
         "tags": [
           "Invoice"
@@ -1611,7 +1612,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/order/{tenderId}": {
+    "/api/local/ua/order/{tenderId}": {
       "get": {
         "tags": [
           "Order"
@@ -1665,7 +1666,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/order": {
+    "/api/local/ua/order": {
       "get": {
         "tags": [
           "Order"
@@ -1777,7 +1778,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/order/check": {
+    "/api/local/ua/order/check": {
       "post": {
         "tags": [
           "Order"
@@ -1838,7 +1839,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/payments/{companyType}/{soid}": {
+    "/api/local/ua/payments/{companyType}/{soid}": {
       "get": {
         "tags": [
           "Payment"
@@ -1903,7 +1904,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/payment/{companyType}/{soid}": {
+    "/api/local/ua/payment/{companyType}/{soid}": {
       "post": {
         "tags": [
           "Payment"
@@ -1988,7 +1989,7 @@
         ]
       }
     },
-    "https://zozengo.com/api/local/ua/payment/{companyType}/{soid}/{paymentId}": {
+    "/api/local/ua/payment/{companyType}/{soid}/{paymentId}": {
       "put": {
         "tags": [
           "Payment"
