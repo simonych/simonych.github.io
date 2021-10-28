@@ -480,11 +480,11 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Origin: ZZ. In ZZ: ShippingOrderEditModel.Id"
+            "description": "Origin: ZZ. In ZZ: Id"
           },
           "update_date": {
             "type": "string",
-            "description": "Origin: ZZ. In ZZ: NOTHING",
+            "description": "Origin: ZZ. In ZZ: NOT FOUND",
             "format": "date-time"
           },
           "deleted": {
@@ -516,18 +516,14 @@
           "cargo_owner": {
             "$ref": "#/components/schemas/Client"
           },
-          "contact_person_co": {
-            "$ref": "#/components/schemas/ContactPerson"
-          },
-          "consignee": {
-            "$ref": "#/components/schemas/Client"
-          },
-          "contact_person_consignee": {
-            "$ref": "#/components/schemas/ContactPerson"
+          "contact_persons_co": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactPerson"            }
           },
           "currency": {
             "type": "string",
-            "description": "Origin: ZZ"
+            "description": "UAH. Origin: 1C"
           },
           "sum_co": {
             "type": "number",
@@ -543,9 +539,12 @@
             "type": "string",
             "description": "Origin: ZZ"
           },
-          "unloading_address": {
-            "type": "string",
-            "description": "Origin: ZZ"
+          "unloading_addresses": {
+            "type": "array",
+            "description": "Origin: ZZ",
+            "items": {
+              "type": "string"              
+            }
           },
           "comment": {
             "type": "string",

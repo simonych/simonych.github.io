@@ -1,0 +1,4291 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Zozengo 1C API",
+    "version": "v3"
+  },
+  "paths": {
+    "https://zozengo.com/api/local/ua/agreements": {
+      "get": {
+        "tags": [
+          "Agreement"
+        ],
+        "summary": "Get all accepted agreements and whose integration process has not yet started.",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Retrieve agreements updated after this date",
+            "schema": {
+              "type": "integer",
+              "description": "Retrieve agreements updated after this date",
+              "format": "int32",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.ListPendingAgreementModel[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.ListPendingAgreementModel[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.ListPendingAgreementModel[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement/{id}": {
+      "get": {
+        "tags": [
+          "Agreement"
+        ],
+        "summary": "Get pending agreement details.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Agreement Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agreement Id",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PendingAgreementModel, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PendingAgreementModel, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PendingAgreementModel, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Agreement"
+        ],
+        "summary": "To save the \"agreement signature process\" response.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Agreement Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Agreement Id",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "AgreementSignatureProcessResultModel",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementSignatureProcessResultModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementSignatureProcessResultModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementSignatureProcessResultModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-types": {
+      "get": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Get all agreement types in zozengo system.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AgreementTypeListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AgreementTypeListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AgreementTypeListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type": {
+      "post": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Create an agreement type.",
+        "requestBody": {
+          "description": "AgreementTypeCreateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTypeCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTypeCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTypeCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type/{key}": {
+      "delete": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Delete agreement type.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "for example: InvoiceFwd",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: InvoiceFwd",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type/activate/{key}": {
+      "put": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Activate agreement type.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "for example: InvoiceFwd",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: InvoiceFwd",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type/deactivate/{key}": {
+      "put": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Deactivate agreement type.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "for example: InvoiceFwd",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: InvoiceFwd",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type/upload-text/{key}": {
+      "post": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Upload a new version of agreement text.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "for example: InvoiceFwd",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: InvoiceFwd",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "AgreementTextEditRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTextEditRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTextEditRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTextEditRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type/activate-text/{key}": {
+      "put": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Activate last version of agreement text with his parent (with agreement key).",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "for example: InvoiceFwd",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: InvoiceFwd",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type/validate-text/{key}/{version}": {
+      "get": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Validate specified version of agreement text. (Checks the field parameters)",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "for example: ContractFwd",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: ContractFwd",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "for example: zz-v2.1",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: zz-v2.1",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult`1[[Synchron.Data.Models.OneC.AgreementFieldValidationErrorResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult`1[[Synchron.Data.Models.OneC.AgreementFieldValidationErrorResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult`1[[Synchron.Data.Models.OneC.AgreementFieldValidationErrorResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/agreement-type/get-pdf/{key}": {
+      "get": {
+        "tags": [
+          "AgreementType"
+        ],
+        "summary": "Create pdf for testing purpose from last version of agreement text.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "for example: ContractFwd",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "for example: ContractFwd",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/cloud-test/list": {
+      "get": {
+        "tags": [
+          "CloudTest"
+        ],
+        "summary": "https://decatec.de/ext/PortableWebDAVLibrary/Doc/html/379fbde2-659c-4cd5-9eb6-0850cd041621.htm",
+        "parameters": [
+          {
+            "name": "folder",
+            "in": "query",
+            "description": "Empty (root) or folder name",
+            "schema": {
+              "type": "string",
+              "description": "Empty (root) or folder name",
+              "default": "API-Ukraine",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "https://zozengo.com/api/local/ua/cloud-test/download": {
+      "get": {
+        "tags": [
+          "CloudTest"
+        ],
+        "summary": "https://decatec.de/ext/PortableWebDAVLibrary/Doc/html/560d32af-9fd5-40f3-a655-517ba991a293.htm",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "description": "filename with folder (Photos/Library.jpg)",
+            "schema": {
+              "type": "string",
+              "description": "filename with folder (Photos/Library.jpg)",
+              "default": "API-Ukraine/filename.xyz",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "https://zozengo.com/api/local/ua/cloud-test/upload": {
+      "get": {
+        "tags": [
+          "CloudTest"
+        ],
+        "summary": "https://decatec.de/ext/PortableWebDAVLibrary/Doc/html/560d32af-9fd5-40f3-a655-517ba991a293.htm",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "description": "filename with folder (/Users/mertyerli/Downloads/upload-tests/Library.jpg)",
+            "schema": {
+              "type": "string",
+              "description": "filename with folder (/Users/mertyerli/Downloads/upload-tests/Library.jpg)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "remoteFolder",
+            "in": "query",
+            "description": "foldername (ApiUploads)",
+            "schema": {
+              "type": "string",
+              "description": "foldername (ApiUploads)",
+              "default": "API-Ukraine",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "https://zozengo.com/api/local/ua/download/{companyId}/{uploadId}": {
+      "get": {
+        "tags": [
+          "Download"
+        ],
+        "summary": "Download file from zozengo cloud.",
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "related companyId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "related companyId",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "uploadId",
+            "in": "path",
+            "description": "file uploadId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "file uploadId",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/thread-count": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "https://zozengo.com/api/local/ua/divide-by-zero/{value}": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "https://zozengo.com/api/local/ua/info/auth-person/{companyId}": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "List authorized people.",
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Company Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Company Id",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/info/auth-person/{companyId}/{personId}": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Get an authorized person details.",
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "description": "Company Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Company Id",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "personId",
+            "in": "path",
+            "description": "Authorized Person Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Authorized Person Id",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/info/doa": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "List document of authority definitions. (doa)",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.DocumentOfAuthorityResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.DocumentOfAuthorityResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.DocumentOfAuthorityResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/info/transport-packages": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "List transportation packages.",
+        "description": "Language support: with request header\r\n            \r\n**Default:** `acceptLanguage = en-US`\r\n            \r\n**Other keys:** `uk-UA, ru-RU, tr-TR`\r\n            \r\nIf the desired language is not available, the default language is displayed.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.TransportPackageListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.TransportPackageListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.TransportPackageListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/info/download-capacities": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "List download capacities / laoding methods.",
+        "description": "Language support: with request header\r\n            \r\n**Default:** `acceptLanguage = en-US`\r\n            \r\n**Other keys:** `uk-UA, ru-RU, tr-TR`\r\n            \r\nIf the desired language is not available, the default language is displayed.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.DownloadCapacityListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.DownloadCapacityListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.DownloadCapacityListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/info/vehicle-types": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "List vehicle types.",
+        "description": "Language support: with request header\r\n            \r\n**Default:** `acceptLanguage = en-US`\r\n            \r\n**Other keys:** `uk-UA, ru-RU, tr-TR`\r\n            \r\nIf the desired language is not available, the default language is displayed.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.VehicleTypeListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.VehicleTypeListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.VehicleTypeListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/invoices": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "List C.O. invoices",
+        "parameters": [
+          {
+            "name": "read",
+            "in": "query",
+            "description": "true=read, false=unread, null=all",
+            "schema": {
+              "type": "boolean",
+              "description": "true=read, false=unread, null=all",
+              "nullable": true
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Retrieve invoices after this date",
+            "schema": {
+              "type": "integer",
+              "description": "Retrieve invoices after this date",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "deliveryAccepted",
+            "in": "query",
+            "description": "Retrieve invoices via filtering delivery accepted or not",
+            "schema": {
+              "type": "boolean",
+              "description": "Retrieve invoices via filtering delivery accepted or not",
+              "nullable": true
+            }
+          },
+          {
+            "name": "deliveryAcceptedAt",
+            "in": "query",
+            "description": "Get only invoices that deliveryAcceptedAt grerater than parameter value",
+            "schema": {
+              "type": "integer",
+              "description": "Get only invoices that deliveryAcceptedAt grerater than parameter value",
+              "format": "int32",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/invoice/co/{soid}": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "Get C.O. invoice details.",
+        "parameters": [
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id (TenderId)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id (TenderId)",
+              "nullable": true
+            }
+          },
+          {
+            "name": "check",
+            "in": "query",
+            "description": "When 'true', checks the read status of the invoice",
+            "schema": {
+              "type": "boolean",
+              "description": "When 'true', checks the read status of the invoice",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceDetailResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceDetailResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceDetailResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "Send CO invoice copy.\r\nAdd a file to body with \"file\" key. Example: { \"file\": base64/pdf }",
+        "description": "Sample request:\r\n            \r\n    curl --location --request POST 'http://{BASE_URL}https://zozengo.com/api/local/ua/invoice/co/UDK-13245' \\\r\n    --header 'Content-Type: application/x-www-form-urlencoded' \\\r\n    --form 'data=@/your-local-folder/inv-12345678-xyz.pdf' \\\r\n    --form 'invoiceNo=inv-12345678'",
+        "parameters": [
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "Cancel shipping order invoice.",
+        "parameters": [
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/invoice/{invoiceNo}": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "Get invoice details by invoiceNo.",
+        "description": "sample invoiceId: ТОВ-20200910-0002",
+        "parameters": [
+          {
+            "name": "invoiceNo",
+            "in": "path",
+            "description": "InvoiceNo (created by 1c)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "InvoiceNo (created by 1c)",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceDetailResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceDetailResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceDetailResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/invoice/to/{soid}": {
+      "post": {
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "Send TO invoice information.",
+        "parameters": [
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "SendTOInvoiceInfoRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.SendTOInvoiceInfoRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.SendTOInvoiceInfoRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.SendTOInvoiceInfoRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfull.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/invoice/act/{companyType}/{soid}": {
+      "post": {
+        "tags": [
+          "Invoice"
+        ],
+        "summary": "Create act of acceptance.",
+        "parameters": [
+          {
+            "name": "companyType",
+            "in": "path",
+            "description": "'co' or 'to'",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "'co' or 'to'",
+              "nullable": true
+            }
+          },
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "CreateActOfAcceptanceRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreateActOfAcceptanceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreateActOfAcceptanceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreateActOfAcceptanceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreateActOfAcceptanceResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreateActOfAcceptanceResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreateActOfAcceptanceResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/order/{tenderId}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Get shipping order details.",
+        "parameters": [
+          {
+            "name": "tenderId",
+            "in": "path",
+            "description": "Tender Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Tender Id",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/order": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Get shipping order list.",
+        "parameters": [
+          {
+            "name": "updatedAt",
+            "in": "query",
+            "description": "It takes records larger than this value.",
+            "schema": {
+              "type": "integer",
+              "description": "It takes records larger than this value.",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCErrorResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Create shipping order.",
+        "requestBody": {
+          "description": "OrderCreateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.OrderCreateResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.OrderCreateResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.OrderCreateResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/order/check": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Order create model validation (or checking). FOR DEVELOPMENT DEBUGGING",
+        "requestBody": {
+          "description": "OrderCreateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.ShippingOrderEditModel, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.ShippingOrderEditModel, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.ShippingOrderEditModel, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/payments/{companyType}/{soid}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "List of payments.",
+        "parameters": [
+          {
+            "name": "companyType",
+            "in": "path",
+            "description": "'co' or 'to'",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "'co' or 'to'",
+              "nullable": true
+            }
+          },
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PaymentListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PaymentListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PaymentListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/payment/{companyType}/{soid}": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Create payment information.",
+        "parameters": [
+          {
+            "name": "companyType",
+            "in": "path",
+            "description": "'co' or 'to'",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "'co' or 'to'",
+              "nullable": true
+            }
+          },
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreatePaymentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreatePaymentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreatePaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreatePaymentResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreatePaymentResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreatePaymentResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "https://zozengo.com/api/local/ua/payment/{companyType}/{soid}/{paymentId}": {
+      "put": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Update payment information.",
+        "parameters": [
+          {
+            "name": "companyType",
+            "in": "path",
+            "description": "'co' or 'to'",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "'co' or 'to'",
+              "nullable": true
+            }
+          },
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          },
+          {
+            "name": "paymentId",
+            "in": "path",
+            "description": "Payment id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Payment id",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UpdatePaymentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UpdatePaymentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UpdatePaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Synchron.Data.Services.OneC.OneCSuccessResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Delete payment.",
+        "parameters": [
+          {
+            "name": "companyType",
+            "in": "path",
+            "description": "'co' or 'to'",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "'co' or 'to'",
+              "nullable": true
+            }
+          },
+          {
+            "name": "soid",
+            "in": "path",
+            "description": "Shipping order id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Shipping order id",
+              "nullable": true
+            }
+          },
+          {
+            "name": "paymentId",
+            "in": "path",
+            "description": "Payment id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Payment id",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Synchron.Data.Models.OneC.ListPendingAgreementModel": {
+        "type": "object",
+        "properties": {
+          "agreementId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "agreementKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "isNeedESign": {
+            "type": "boolean"
+          },
+          "lastUpdatedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.ListPendingAgreementModel[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.ListPendingAgreementModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Entities.Enums.OwnershipType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Synchron.Data.Models.OneC.UploadedDocumentModel": {
+        "type": "object",
+        "properties": {
+          "uploadId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "originalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "mimeType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.PendingAgreementModel+AuthorizedPersonModel+AuthorizedPersonDocumentModel": {
+        "type": "object",
+        "properties": {
+          "uploadId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "originalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "mimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentOfAuthorityId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.PendingAgreementModel+AuthorizedPersonModel": {
+        "type": "object",
+        "properties": {
+          "authorizedPersonId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.PendingAgreementModel+AuthorizedPersonModel+AuthorizedPersonDocumentModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Helpers.Common.MessagePlatformType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          99
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Synchron.Data.Models.OneC.PendingAgreementModel+InstanstMessengerModel": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Synchron.Helpers.Common.MessagePlatformType"
+          },
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.PendingAgreementModel+ContactDetailModel": {
+        "type": "object",
+        "properties": {
+          "addressForCorrespondence": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPerson": {
+            "type": "string",
+            "nullable": true
+          },
+          "phones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "instantMessengerTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.PendingAgreementModel+InstanstMessengerModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.PendingAgreementModel": {
+        "type": "object",
+        "properties": {
+          "agreementId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "agreementKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "isNeedESign": {
+            "type": "boolean"
+          },
+          "lastUpdatedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "typeOfActivity": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownershipType": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.OwnershipType"
+          },
+          "registeredCompanyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "codeInRegistration": {
+            "type": "string",
+            "nullable": true
+          },
+          "legalEntityType": {
+            "type": "string",
+            "nullable": true
+          },
+          "viewsOfActivity": {
+            "type": "string",
+            "nullable": true
+          },
+          "vatNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "vatStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "legalAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressOfTaxOffice": {
+            "type": "string",
+            "nullable": true
+          },
+          "passportNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "passportDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "passportIssue": {
+            "type": "string",
+            "nullable": true
+          },
+          "passportCopyDocs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UploadedDocumentModel"
+            },
+            "nullable": true
+          },
+          "identificationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "identificationCodeCopyDocs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UploadedDocumentModel"
+            },
+            "nullable": true
+          },
+          "authorizedPerson": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.PendingAgreementModel+AuthorizedPersonModel"
+          },
+          "ibaNs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "charterDocs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UploadedDocumentModel"
+            },
+            "nullable": true
+          },
+          "materialTransferProtocolDocs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UploadedDocumentModel"
+            },
+            "nullable": true
+          },
+          "contactDetail": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.PendingAgreementModel+ContactDetailModel"
+          },
+          "agreementDoc": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.UploadedDocumentModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PendingAgreementModel, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.PendingAgreementModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Entities.Enums.AgreementStatusType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          9,
+          50
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Synchron.Data.Models.OneC.AgreementSignatureProcessResultModel": {
+        "type": "object",
+        "properties": {
+          "agreementStatus": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.AgreementStatusType"
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tassle.Validation.IValidationError": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCErrorResult": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tassle.Validation.IValidationError"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Entities.Enums.AssociatedProfileType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Synchron.Data.Models.OneC.AgreementTypeListResponse": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "associatedProfile": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.AssociatedProfileType"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "activeVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastUploadedVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastUpdatedAt": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AgreementTypeListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTypeListResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Entities.Enums.AgreementUsageAreaType": {
+        "enum": [
+          0,
+          10,
+          20,
+          30
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Synchron.Data.Models.OneC.AgreementTypeCreateRequest": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "associatedProfile": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.AssociatedProfileType"
+          },
+          "usageArea": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.AgreementUsageAreaType"
+          },
+          "isJustLocalSign": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.AgreementTextVersion": {
+        "type": "object",
+        "properties": {
+          "majorVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minorVersion": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.AgreementTextEditRequest": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementTextVersion"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.AgreementFieldValidationErrorResponse": {
+        "type": "object",
+        "properties": {
+          "agreementKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "agreementVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActiveVersion": {
+            "type": "boolean"
+          },
+          "totalParameterCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "missingParameterCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "matchingKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "missingKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "wrongKeysInText": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCErrorResult`1[[Synchron.Data.Models.OneC.AgreementFieldValidationErrorResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tassle.Validation.IValidationError"
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AgreementFieldValidationErrorResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse+AuthorizedPersonDocumentInfo": {
+        "type": "object",
+        "properties": {
+          "uploadId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "originalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "mimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentOfAuthorityId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse": {
+        "type": "object",
+        "properties": {
+          "authorizedPersonId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "officialCEO": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorizedAgreements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "documentOfAuthorityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "documentOfAuthority": {
+            "type": "string",
+            "nullable": true
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse+AuthorizedPersonDocumentInfo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.AuthorizedPersonInfoResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.DocumentOfAuthorityResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "caption": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.DocumentOfAuthorityResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.DocumentOfAuthorityResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.TransportPackageListModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.TransportPackageListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.TransportPackageListModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.DownloadCapacityListModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.DownloadCapacityListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.DownloadCapacityListModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.VehicleTypeListModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
+          },
+          "group": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.VehicleTypeListModel[], Synchron.Data.Services, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.VehicleTypeListModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Entities.Enums.InvoiceExecutionStatusType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Synchron.Data.Models.OneC.InvoiceListResponse": {
+        "type": "object",
+        "properties": {
+          "shippingOrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "executionStatus": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.InvoiceExecutionStatusType"
+          },
+          "updatedAt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deliveryAcceptedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "coInvoiceUploaded": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceListResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.InvoiceDetailResponse+AddressInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "addressId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "flatAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.InvoiceDetailResponse+VehicleInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "vehicleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "certificateNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "plateNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "brandId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "brandName": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfRegistration": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "volumeOfCargoBody": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "loadCapacityTonnage": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "trailers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceDetailResponse+VehicleInfo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.InvoiceDetailResponse+AgreementInfo": {
+        "type": "object",
+        "properties": {
+          "acceptanceId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "agreementKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "agreementVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "agreementStatus": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.AgreementStatusType"
+          },
+          "integrationCreatedDocUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "generatedDocId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.InvoiceDetailResponse": {
+        "type": "object",
+        "properties": {
+          "shippingOrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ongoingStatusDate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "shipmentDate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unloadDate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "transporterOwnerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "cargoOwnerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "transporterOwner": {
+            "type": "string",
+            "nullable": true
+          },
+          "cargoOwner": {
+            "type": "string",
+            "nullable": true
+          },
+          "sumCO": {
+            "type": "number",
+            "format": "double"
+          },
+          "sumTO": {
+            "type": "number",
+            "format": "double"
+          },
+          "vatRatio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "loadingAddress": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceDetailResponse+AddressInfo"
+          },
+          "unloadingAddresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceDetailResponse+AddressInfo"
+            },
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "vehicle": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceDetailResponse+VehicleInfo"
+          },
+          "executionStatus": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Enums.InvoiceExecutionStatusType"
+          },
+          "transporterOwnerAgreement": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceDetailResponse+AgreementInfo"
+          },
+          "cargoOwnerAgreement": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceDetailResponse+AgreementInfo"
+          },
+          "deliveryRequestedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deliveryAcceptedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.InvoiceDetailResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.InvoiceDetailResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.SendTOInvoiceInfoRequest": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "invoiceNo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.CreateActOfAcceptanceRequest": {
+        "type": "object",
+        "properties": {
+          "isAccepted": {
+            "type": "boolean"
+          },
+          "acceptanceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.CreateActOfAcceptanceResponse": {
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreateActOfAcceptanceResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreateActOfAcceptanceResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.DisposableAddressModel": {
+        "type": "object",
+        "properties": {
+          "addressId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.DisposableContactModel": {
+        "type": "object",
+        "properties": {
+          "contactId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.PickUpLocationInfoModel": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.DisposableAddressModel"
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.DisposableContactModel"
+            },
+            "nullable": true
+          },
+          "notesForDrivers": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.CargoTaskModel": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "typeOfTransportPackageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isFragile": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.DropOffLocationInfoModel": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.DisposableAddressModel"
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.DisposableContactModel"
+            },
+            "nullable": true
+          },
+          "notesForDrivers": {
+            "type": "string",
+            "nullable": true
+          },
+          "cargoTasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CargoTaskModel"
+            },
+            "nullable": true
+          },
+          "estimatedArrivesAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.OrderCreateRequest": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "pickUpLocationInfo": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.PickUpLocationInfoModel"
+          },
+          "dropoffLocationsInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.DropOffLocationInfoModel"
+            },
+            "nullable": true
+          },
+          "pickUpAt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pickUpTo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vehicleTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "downloadCapacities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "tenderTimeStartsAt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenderTimeEndsAt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "insurance": {
+            "type": "boolean"
+          },
+          "desiredShippingCost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vatRatio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.OrderCreateResponse+DropOffInfoModel": {
+        "type": "object",
+        "properties": {
+          "routeDistanceValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "routeDistanceText": {
+            "type": "string",
+            "nullable": true
+          },
+          "routeDurationValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "routeDurationText": {
+            "type": "string",
+            "nullable": true
+          },
+          "estimatedArrivesAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.OrderCreateResponse": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "tenderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "pickUpAt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pickUpTo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dropoffLocationsInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateResponse+DropOffInfoModel"
+            },
+            "nullable": true
+          },
+          "totalStops": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRouteLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenderTimeStartsAt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenderTimeEndsAt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentAveragePrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalAveragePrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "desiredShippingCost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "calculatedCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "vatRatio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "calculatedVat": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "calculatedTotal": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.OrderCreateResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.OrderCreateResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.CargoTaskModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "typeOfTransportPackageId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "m3": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isFragile": {
+            "type": "boolean"
+          },
+          "isAdr": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "classOfAdr": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.CargoLocationInfoModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "addressId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "notesForDrivers": {
+            "type": "string",
+            "nullable": true
+          },
+          "routeDistanceValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "routeDistanceText": {
+            "type": "string",
+            "nullable": true
+          },
+          "routeDurationValue": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "routeDurationText": {
+            "type": "string",
+            "nullable": true
+          },
+          "estimatedArrivesAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deliveryRequestedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deliveryRequestRejectedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deliveryAcceptedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deliveryAcceptRejectedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cargoTasks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.CargoTaskModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.EmailModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "isValidationRequired": {
+            "type": "boolean"
+          },
+          "validatedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isDefault": {
+            "type": "boolean"
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Entities.Domain.PhoneType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Synchron.Data.Services.Models.PhoneModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "phoneType": {
+            "$ref": "#/components/schemas/Synchron.Data.Entities.Domain.PhoneType"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "isValidationRequired": {
+            "type": "boolean"
+          },
+          "validatedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.DisposableContact": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.EmailModel"
+            },
+            "nullable": true
+          },
+          "phones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.PhoneModel"
+            },
+            "nullable": true
+          },
+          "isDisposable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.DisposableObjectModel`1[[Synchron.Data.Services.Models.DisposableContact, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "isSelectable": {
+            "type": "boolean"
+          },
+          "custom": {
+            "$ref": "#/components/schemas/Synchron.Data.Services.Models.DisposableContact"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.DisposableAddress": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "postalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "countryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "stateId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "stateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "cityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "isDisposable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.DisposableObjectModel`1[[Synchron.Data.Services.Models.DisposableAddress, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "isSelectable": {
+            "type": "boolean"
+          },
+          "custom": {
+            "$ref": "#/components/schemas/Synchron.Data.Services.Models.DisposableAddress"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.Models.ShippingOrderEditModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "tenderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "pickUpLocationInfo": {
+            "$ref": "#/components/schemas/Synchron.Data.Services.Models.CargoLocationInfoModel"
+          },
+          "dropoffLocationsInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.CargoLocationInfoModel"
+            },
+            "nullable": true
+          },
+          "disposableContacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.DisposableObjectModel`1[[Synchron.Data.Services.Models.DisposableContact, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+            },
+            "nullable": true
+          },
+          "disposableAddresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Services.Models.DisposableObjectModel`1[[Synchron.Data.Services.Models.DisposableAddress, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]"
+            },
+            "nullable": true
+          },
+          "pickUpAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pickUpTo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "totalStops": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalRouteLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vehicleTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "downloadCapacities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "tenderTimeStartsAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tenderTimeEndsAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "insurance": {
+            "type": "boolean"
+          },
+          "currentAveragePrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalAveragePrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "bestBid": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "desiredShippingCost": {
+            "type": "number",
+            "format": "double"
+          },
+          "isSpecificOption": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "calculatedCost": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "vatRatio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "calculatedVat": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "calculatedTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "plateNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "driverName": {
+            "type": "string",
+            "nullable": true
+          },
+          "driverLicenseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "winnerCompanyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "deliveryRequestedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deliveryAcceptedAt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Services.Models.ShippingOrderEditModel, Synchron.Data.Services.Models, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Synchron.Data.Services.Models.ShippingOrderEditModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.PaymentListResponse": {
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.PaymentListResponse[], Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synchron.Data.Models.OneC.PaymentListResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.CreatePaymentRequest": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.CreatePaymentResponse": {
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Services.OneC.OneCSuccessResult`1[[Synchron.Data.Models.OneC.CreatePaymentResponse, Synchron.Data.Models.OneC, Version=0.5.8263.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "result": {
+            "$ref": "#/components/schemas/Synchron.Data.Models.OneC.CreatePaymentResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Synchron.Data.Models.OneC.UpdatePaymentRequest": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer token\" Address:http://zz-web.zozengo.com/api/auth/token/auth",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
+}
